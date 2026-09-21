@@ -30,5 +30,14 @@
   <div id="overlay"></div>
 </div>
 <script type="module" src="js/main.js"></script>
+<script>
+window.addEventListener('error', e => {
+  const m = e.message || (e.target && e.target.src ? '로드 실패: ' + e.target.src : '에러');
+  const d = document.createElement('div');
+  d.style.cssText = 'position:fixed;inset:0;z-index:99;background:#1a1a1a;color:#ff8888;padding:20px;font:13px monospace;white-space:pre-wrap;overflow:auto;';
+  d.textContent = m;
+  document.body.appendChild(d);
+}, true);
+</script>
 </body>
 </html>
