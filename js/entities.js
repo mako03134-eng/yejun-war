@@ -133,4 +133,4 @@ export class Base { // 성: tower 데이터가 주입된 아군 성은 직접 �
       game.resultPending = { win: this.side === 'enemy', t: 1.6 };
     }
   }
-                     }
+}
