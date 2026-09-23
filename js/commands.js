@@ -11,7 +11,7 @@ export function spawnEnemy(type) {
   game.enemies.push(new Fighter(def, ENEMY_BASE_X + 25 + Math.random() * 15, 'enemy'));
   if (def.id === 'hippo' && !game.hippoWarned) {
     game.hippoWarned = true; game.shake = Math.max(game.shake, .6);
-    addText(FIELD_W / 2, 180, '거대한 적이 나타났다!', '#ff5b5b', 1.6, 20);
+    addText(FIELD_W / 2, 180, '보스 출몰!!', '#ff5b5b', 1.6, 20);
   }
 }
 
