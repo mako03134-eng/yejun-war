@@ -16,7 +16,7 @@ async function boot() {
     ...(TOWER.img ? [{ key: 'tower/player', src: assetSrc('towers', TOWER.img) }] : []),
     ...(TOWER.imgFire ? [{ key: 'tower/player_fire', src: assetSrc('towers', TOWER.imgFire) }] : []),
   ];
-  showOverlay(`<div class="panel"><h2>스프라이트 로딩 중</h2>
+  showOverlay(`<div class="panel"><h2>에셋 로딩 중</h2>
     <div id="loadBarWrap"><div id="loadBar"></div></div>
     <p class="sub" id="loadText">0 / ${jobs.length}</p></div>`);
   await preload(jobs, (done, total) => {

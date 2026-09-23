@@ -17,10 +17,10 @@ export function showTitle() {
   const cleared = getCleared();
   showOverlay(`<div class="panel">
     <h1 class="title">냥코 대전쟁 <span style="font-size:13px;color:#999">web prototype</span></h1>
-    <p class="sub">적 성을 부수면 승리! 고양이 기지가 파괴되면 패배<br>고양이는 자동으로 싸운다 — 당신은 자금 운영이 전부다</p>
+    <p class="sub">적성 뿌시기<br>열심히 운영 ㄱㄱ</p>
     ${STAGES.map((s, i) =>
       `<button class="stageBtn" data-action="start:${i}">${s.name}${cleared.includes(i) ? ' ★' : ''}</button>`).join('')}
-    <p class="hint">숫자키 1~9: 고양이 출격 · Q: 지갑 강화 · C: 냥코 대포 · S: 배속 · P: 일시정지</p>
+    <p class="hint">숫자키 1~9: 캐릭터 생성 · Q: 지갑 강화 · C: 빔 · S: 배속 · P: 일시정지</p>
   </div>`);
 }
 
@@ -33,10 +33,10 @@ export function showResult(win) {
   const mm = String(Math.floor(game.t / 60)).padStart(2, '0');
   const ss = String(Math.floor(game.t % 60)).padStart(2, '0');
   showOverlay(`<div class="panel">
-    <h2 class="${win ? 'win' : 'lose'}">${win ? '승리! 적 성 파괴 성공' : '패배... 고양이 기지가 함락됐다'}</h2>
-    <p class="stats">${STAGES[game.stageIdx].name} · ${mm}:${ss}<br>적 격파 ${game.kills} · 고양이 출격 ${game.spawnedCount}</p>
-    <button class="stageBtn" data-action="retry">다시 도전</button>
-    <button class="stageBtn alt" data-action="title">관문 선택</button>
+    <h2 class="${win ? 'win' : 'lose'}">${win ? '승리!' : '패배...'}</h2>
+    <p class="stats">${STAGES[game.stageIdx].name} · ${mm}:${ss}<br>적 처치 ${game.kills} · 캐릭터 생성 ${game.spawnedCount}</p>
+    <button class="stageBtn" data-action="retry">다시하기</button>
+    <button class="stageBtn alt" data-action="title">레벨택</button>
   </div>`);
 }
 
@@ -55,7 +55,7 @@ export function initBattle(idx) {
   for (const s of st.spawns)
     for (let i = 0; i < (s.n || 1); i++) game.spawnQueue.push({ t: s.t + i * (s.gap || 0), type: s.type });
   game.spawnQueue.sort((a, b) => a.t - b.t);
-  setStageName(`냥코 대전쟁 · ${st.name}`);
+  setStageName(`예준이 대전쟁 · ${st.name}`);
   updateSpeedBtn();
   hideOverlay();
 }
